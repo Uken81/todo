@@ -22,7 +22,7 @@ export const SigninPage = () => {
 
     const handleSignup = async () => {
         await createUser(email, password)
-        .then(() => {
+        .then(async () => {
           console.log('user has signed up');
           navigate('/todo');
         })

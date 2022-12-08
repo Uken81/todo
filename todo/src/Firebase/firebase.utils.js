@@ -20,9 +20,8 @@ const firebaseConfig = {
     appId: "1:173978248106:web:d3007aa22139e6f6dcc1d3"
   };
   
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 // export const createUserProfile = async (email, password) => {

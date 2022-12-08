@@ -1,23 +1,16 @@
-import { signOut } from "firebase/auth";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router";
-import { UserAuth, UserContext } from "./Firebase/AuthContextProvider";
-import { auth } from "./Firebase/firebase.utils";
+import { UserAuth } from "./Firebase/AuthContextProvider";
 import { Signout } from "./Signout";
 import { TodoForm } from "./TodoForm";
 
 export const Todo = () => {
   const { user } = UserAuth();
-
-  // const user = userContext?.user;
   const [todos, setTodos] = useState([]);
 
-  const changeCompletedStatus = (item, index) => {
-    console.log('user', user);
+  const changeCompletedStatus = (index) => {
    const clonedItem = {...todos[index]};
    clonedItem.isCompleted = !clonedItem.isCompleted
-
    const clonedState = [...todos];
    clonedState[index] = clonedItem;
    setTodos(clonedState);
